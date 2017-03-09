@@ -1,0 +1,40 @@
+create database eportal_db;
+
+use eportal_db;
+
+//Login Table 
+create table login (id varchar(10),
+username varchar(40) primary key,
+password varchar(40) );    			
+
+//admin table
+create table admin (admin_uname varchar(30) primary key,
+password varchar(30));
+
+//emp_users table //admin can update this table 
+create table emp_users (emp_id varchar(45) 
+emp_fname varchar(45),
+emp_lname varchar(45),
+emp_city varchar(45),
+emp_zipcode varchar(45),
+emp_state varchar(45),
+emp_country varchar(45), emp_address varchar(45), emp_passwd varchar(45),
+emp_email varchar(45),emp_pastcompany varchar(45), emp_presentcompany varchar(45),
+emp_designation varchar(45),emp_enddate date, emp_type varchar(45), emp_leavestaken varchar(45),
+emp_wrkfrmhome varchar(45),emp_wrkingdays varchar(45), emp_latearrival varchar(45),emp_joindate date,
+emp_phone varchar(12) );
+ 
+ ******emp_type= contract/full time
+ emp_enddate indicates the contractors end date
+ 
+ //employee table contains employee info
+create table employee (emp_id varchar(45) 
+emp_fname varchar(45),
+emp_lname varchar(45),
+emp_email varchar(45), emp_phone varchar(12) );
+
+alter table eportal_db.emp_users add column emp_phone varchar(12);
+
+alter table eportal_db.emp_users drop column emp_joindate;
+
+alter table eportal_db.emp_users add column emp_joindate date;
